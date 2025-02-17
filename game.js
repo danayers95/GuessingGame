@@ -3,6 +3,26 @@ let userGuess;
 let attempts = 0;
 
 // Prompt user for a number between 1 and 10, or type 999 to exit.
+while (userGuess !== 999) {
+  userGuess = parseInt(prompt("Guess a number between 1 and 10, or type 999 to exit:"), 10);
+
+  if (userGuess === 999) {
+    break;
+  }
+  attempts++;
+
+  // Check if the input is a valid number
+  if (isNaN(userGuess)) {
+    alert("Invalid input. Enter a number.");
+  } else if (userGuess < randomNumber) {
+    alert("Number is too low!");
+  } else if (userGuess > randomNumber) {
+    alert("Number is too high!");
+  } else {
+    alert(`Congratulations! You've guessed the correct number: ${randomNumber}. It took you ${attempts} attempts.`);
+    break;
+  }
+}
 
 // Create while loop that continues for as long as the user guesses are incorrect.
 // Loop should count the number of guesses.
